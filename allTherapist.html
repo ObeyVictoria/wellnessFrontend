@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+   <h1>Name of Therapist would appear here</h1> 
+   <a href="http://">Calenderly link would appear here</a>
+   <a href="http://">link to each therapist profile would appear here and there would be option to chat</a>
+   <script>
+    const url = 'https://mentalwellness.onrender.com'
+ const assesstoken = localStorage.getItem("token")
+
+
+  const authAxios = axios.create({
+  baseUrl: url,
+  headers:{
+    Authorization:`Bearer ${assesstoken}`
+  }
+})
+
+const r =()=>{ authAxios.post(`${url}/allTheraph`).then(rs=>{
+    console.log(rs.data)
+    //document.getElementById('username').innerHTML=rs.data[0].greetName
+
+})}
+   </script>
+</body>
+</html>
