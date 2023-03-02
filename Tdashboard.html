@@ -9,12 +9,15 @@
     <title>Document</title>
 </head>
 <style>
-  body {
-    background-image: url("images/MindWellness.png");
-    background-size: cover;
-    background-attachment: fixed;
-  }
-</style>
+    body {
+      background-image: url("images/MindWellness.png");
+      background-size: cover;
+      background-attachment: fixed;
+    }
+    main {
+      margin-top: 90px;
+    }
+  </style>
 <body>
   <header id="header">
     <a href="/" style="text-decoration: none;"><img src="images/MindWellness.png" width="46px" alt=""> </a>
@@ -44,36 +47,27 @@
       </ul>
     </nav>
   </header>
-   <div id="allTheraph"></div>
-   <script>
-    //const url = 'http://localhost:4000'
-    const url = 'https://tame-gold-hen-wear.cyclic.app'
- const assesstoken = localStorage.getItem("token")
-
-
-  const authAxios = axios.create({
+  <main>
+    <h1><span style="font-size: large; font-weight: 900;">Welcome</span> <span id="username" style="font-size: large; font-weight: 500; padding: 5px;"></span> </h1>
+    <a href="#">start video call</a>
+  </main>
+    <script>
+ //const url = 'http://localhost:4000'
+ const url = 'https://tame-gold-hen-wear.cyclic.app'
+const assesstoken = localStorage.getItem("token")
+const authAxios = axios.create({
   baseUrl: url,
   headers:{
     Authorization:`Bearer ${assesstoken}`
   }
 })
 
-authAxios.get(`${url}/allTheraph`).then(rs=>{
-   console.log("backend") 
-   console.log(rs.data)  
- if (rs.data[0].allTheraph !== null){
-  let rezult = rs.data[0].allTheraph.map(element =>{
-    return `<div>
-      <h6><pre style="font-size: large; font-weight: 900;">${element.lastName} ${element.firstName}</pre></h6>
-      <h6><pre style="font-size: large; font-weight: 700;">${element.gender} from ${element.country}</pre></h6>
-<button><a href="${element.calendLink}" target="_blank">Book a Session</a></button>
-<button><a href="${element.therapistId}">View Profile</a></button>
-</div>
-`
-  })
-  document.getElementById('allTheraph').innerHTML = rezult.join("")
- }
+authAxios.post(`${url}/dashboard`).then(rs=>{
+   console.log("backend")
+  console.log(rs.data) 
+  console.log(rs.data[0].fname) 
+  document.getElementById('username').innerHTML = rs.data[0].fname
  })
-   </script>
+    </script>
 </body>
 </html>

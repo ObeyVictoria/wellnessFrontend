@@ -30,8 +30,11 @@ router.get('/Tsignup',function(req,res){
 router.get('/login',function(req,res){
     res.sendFile(path.join(__dirname+'/login.html'));
   });
-router.get('/dashboard',function(req,res){
-    res.sendFile(path.join(__dirname+'/dashboard.html'));
+router.get('/Cdashboard',function(req,res){
+    res.sendFile(path.join(__dirname+'/Cdashboard.html'));
+  });
+  router.get('/Tdashboard',function(req,res){
+    res.sendFile(path.join(__dirname+'/Tdashboard.html'));
   });
 router.get('/allTheraph',function(req,res){
     res.sendFile(path.join(__dirname+'/allTherapist.html'));

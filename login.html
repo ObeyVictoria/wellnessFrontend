@@ -14,22 +14,22 @@
     <div id="page-wrapper">
         <!-- Header -->
         <header id="header">
-            <h1><a href="index.html">Mind-Wellness</a></h1>
+            <a href="/" style="text-decoration: none;"><img src="images/MindWellness.png" width="46px" alt=""> </a>
             <nav id="nav">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="/">Home</a></li>
                     <li>
                     <a href="#" class="icon solid fa-angle-down">Layouts</a>
                     <ul>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="services.html">Services</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="/services">Services</a></li>
                         <li><a href="/login">Login</a></li>
                         <li>
                             <a href="#">Features</a>
                             <ul>
-                                <li><a href="#">MindBot</a></li>
-                                <li><a href="#">Therapist</a></li>
+                                <li><a href="https://mind-bot.vercel.app/">MindBot</a></li>
+                                <li><a href="/Csignup">Therapist</a></li>
                                 <li><a href="#">Support Group</a></li>
                                 <li><a href="#">Tracker</a></li>
                                 <li><a href="#">Resources</a></li>
@@ -100,7 +100,8 @@
           function login(){
           const email =   document.getElementById('login-input1').value
             const password = document.getElementById('login-input2').value
-           
+
+        //axios.post('http://127.0.0.1:4000/Auth',{   
         axios.post('https://tame-gold-hen-wear.cyclic.app/Auth',{
             email: email,
             password: password
@@ -115,8 +116,14 @@
         })
         }else{
           console.log(res.data[0].message)
+          console.log(res.data[0].user) 
           localStorage.setItem("token",res.data[0].message)
-          window.location = '/dashboard'
+          if(res.data[0].user == "Client"){
+            window.location = '/Cdashboard'
+          }
+          else{
+            window.location = '/Tdashboard'
+          }
            
         }
         

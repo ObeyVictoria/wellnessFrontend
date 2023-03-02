@@ -14,7 +14,7 @@
     <div id="page-wrapper">
         <!-- Header -->
         <header id="header">
-            <h1><a href="/">Mind-Wellness</a></h1>
+            <a href="/" style="text-decoration: none;"><img src="images/MindWellness.png" width="46px" alt=""> </a>
             <nav id="nav">
                 <ul>
                     <li><a href="/">Home</a></li>
@@ -60,7 +60,7 @@
                                 <input title="Last Name" type="text" name="Last Name" placeholder="Last Name" id="input-field2" class="input-field" value="" required>
                             </div>
                             <div>
-                                <input title="Calenderly Link" type="text" name="Calenderly Link" placeholder="Link to Calenderly" id="link" class="input-field" value="" required>
+                                <input title="Calenderly Link" type="text" name="Calenderly Link" placeholder="Calendly Link" id="link" class="input-field" value="" required>
                             </div>
                             <div>
                                 <input title="Email" type="email" name="Email" placeholder="Email" id="input-field3" class="input-field" value="" required>
@@ -355,7 +355,7 @@
                                 <label for="Experience">Experience:</label>
                                 <textarea title="Experience" id="Experience1" class="input-field" value="" required placeholder="Your place of work or place you worked"></textarea>
                             </div>
-                            <div>
+                        <div>
                                 <label for="Experience">Experience 2:</label>
                                 <textarea title="Experience" id="Experience2" class="input-field" value="" placeholder="More of your experience as a therapist"></textarea>
                             </div>
@@ -411,7 +411,7 @@
             const eYear = document.getElementById('experience').value
             const email = document.getElementById('input-field3').value
             const password = document.getElementById('input-field5').value
-           
+            //axios.post('http://127.0.0.1:4000/Auth',{    
         axios.post('https://tame-gold-hen-wear.cyclic.app/registerTheraph',{
             fName: fName,
             lName: lName,
