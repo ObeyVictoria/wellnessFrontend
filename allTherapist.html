@@ -11,7 +11,7 @@
 <style>
   body {
     background-image: url("images/MindWellness.png");
-    background-size: cover;
+    background-size: contain;
     background-attachment: fixed;
   }
   main {
@@ -73,7 +73,7 @@ authAxios.get(`${url}/allTheraph`).then(rs=>{
       <h6><pre style="font-size: large; font-weight: 900;">${element.lastName} ${element.firstName}</pre></h6>
       <h6><pre style="font-size: large; font-weight: 700;">${element.gender} from ${element.country}</pre></h6>
 <button><a href="${element.calendLink}" target="_blank">Book a Session</a></button>
-<button><a href="${element.therapistId}">View Profile</a></button>
+<form id="profileForm"><button type="submit" value="${element.therapistId}"></button><form>
 </div>
 `
   })
