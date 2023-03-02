@@ -18,6 +18,9 @@ router.get('/contact',function(req,res){
 router.get('/services',function(req,res){
   res.sendFile(path.join(__dirname+'/services.html'));
 });
+router.get('/blog',function(req,res){
+  res.sendFile(path.join(__dirname+'/mindblog.html'));
+});
 router.get('/signup',function(req,res){
     res.sendFile(path.join(__dirname+'/main.html'));
   });
